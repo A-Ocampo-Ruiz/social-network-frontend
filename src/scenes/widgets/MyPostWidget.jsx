@@ -36,8 +36,8 @@ const MyPostWidget = ({ picturePath }) => {
   const [post, setPost] = useState("");
   const { palette } = useTheme();
   const { _id } = useSelector((state) => state.user);
-  const { token } = useSelector((state) => state.token);
-  const isNonMobileScreens = useMediaQuery("(min-width: 1000px");
+  const token = useSelector((state) => state.token);
+  const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
 
   const mediumMain = palette.neutral.mediumMain;
   const medium = palette.neutral.medium;
@@ -46,7 +46,7 @@ const MyPostWidget = ({ picturePath }) => {
   const handlePost = async () => {
     const formData = new FormData();
     formData.append("userId", _id);
-    formData.append("descripcion", post);
+    formData.append("description", post);
 
     if (image) {
       formData.append("picture", image);
@@ -70,12 +70,12 @@ const MyPostWidget = ({ picturePath }) => {
       <FlexBetween gap="1.5rem">
         <UserImage image={picturePath} />
         <InputBase
-          placeholder="What is on your mind?"
+          placeholder="What's on your mind?"
           onChange={(e) => setPost(e.target.value)}
           value={post}
           sx={{
             width: "100%",
-            backgroundColor: palette.neutral.ligth,
+            backgroundColor: palette.neutral.light,
             borderRadius: "2rem",
             padding: "1rem 2rem",
           }}
@@ -112,7 +112,7 @@ const MyPostWidget = ({ picturePath }) => {
                     </FlexBetween>
                   )}
                 </Box>
-                {Image && (
+                {image && (
                   <IconButton
                     onClick={() => {
                       setImage(null);

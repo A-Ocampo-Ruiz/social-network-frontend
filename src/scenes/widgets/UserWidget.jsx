@@ -128,7 +128,7 @@ const UserWidget = ({ userId, picturePath }) => {
               <Typography color={main} fontWeight="500">
                 Linkedin
               </Typography>
-              <Typography color={medium}> Job Network </Typography>
+              <Typography color={medium}> Business Network </Typography>
             </Box>
           </FlexBetween>
           <ModeEditOutlineIcon sx={{ color: main }} />

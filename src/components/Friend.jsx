@@ -10,8 +10,11 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { _id } = useSelector((state) => state.user);
-  const { token } = useSelector((state) => state.token);
-  const friends = useSelector((state) => state.user.friends);
+  const token = useSelector((state) => state.token);
+  let friends = useSelector((state) => state.user.friends);
+  if (!friends.length) {
+    friends = [];
+  }
 
   const { palette } = useTheme();
   const primaryLight = palette.primary.light;
